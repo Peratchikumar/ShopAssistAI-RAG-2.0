@@ -1,0 +1,13 @@
+﻿SKU,product_name,category,brand,description,price_inr,currency,availability_demo,warranty_months_demo,return_eligibility_demo,tags
+SA-ELE-001,Wireless Bluetooth Headphones,Electronics,SoundPeak,Over-ear wireless headphones with Bluetooth and built-in microphone.,2499,INR,In stock,12,Yes,audio;wireless;headphones
+SA-ELE-002,USB-C Fast Charging Cable,Electronics,ChargeMate,1 metre USB-C charging cable for compatible devices.,399,INR,In stock,6,Yes,cable;usb-c;charging
+SA-ELE-003,Portable Bluetooth Speaker,Electronics,SoundPeak,Compact portable speaker with Bluetooth audio and rechargeable battery.,1799,INR,Low stock,12,Yes,speaker;portable;audio
+SA-HOM-001,Stainless Steel Water Bottle,Home & Kitchen,DailyCarry,750 ml reusable stainless-steel water bottle.,599,INR,In stock,0,Yes,bottle;steel;reusable
+SA-HOM-002,Non-stick Frying Pan,Home & Kitchen,CookEase,24 cm non-stick frying pan with heat-resistant handle.,1099,INR,In stock,6,Yes,cookware;kitchen;pan
+SA-FAS-001,Cotton Crew Neck T-Shirt,Fashion,EverydayWear,Regular-fit cotton crew-neck T-shirt; sizes and colours may vary.,499,INR,In stock,0,Yes,apparel;cotton;t-shirt
+SA-FAS-002,Casual Running Shoes,Fashion,MoveWell,Lightweight everyday running shoes with cushioned sole.,1899,INR,In stock,3,Yes,shoes;running;footwear
+SA-BEA-001,Aloe Vera Moisturising Gel,Beauty & Personal Care,PureLeaf,Aloe vera gel for external skincare use; review product label.,249,INR,In stock,0,No - opened hygiene item,skincare;gel;personal-care
+SA-STA-001,A5 Hardcover Notebook,Stationery,NoteCraft,A5 ruled hardcover notebook with 200 pages.,199,INR,In stock,0,Yes,notebook;stationery;paper
+SA-ACC-001,Laptop Sleeve 15.6 inch,Accessories,CarryPro,Protective sleeve designed for laptops up to 15.6 inches.,799,INR,In stock,3,Yes,laptop;sleeve;accessory
+SA-ELE-004,Wireless Optical Mouse,Electronics,WorkFlow,2.4 GHz wireless optical mouse with USB receiver.,699,INR,In stock,12,Yes,mouse;computer;wireless
+SA-HOM-003,LED Desk Lamp,Home & Kitchen,BrightDesk,Adjustable LED desk lamp with multiple brightness settings.,1299,INR,Out of stock,12,Yes,lamp;lighting;desk
