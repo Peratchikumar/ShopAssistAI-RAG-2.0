@@ -1,0 +1,85 @@
+
+# ==================================================
+# SHOPASSISTAI RAG 2.0 - GITIGNORE
+# ==================================================
+
+# Python cache files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Python virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Environment variables and API secrets
+.env
+.env.*
+!.env.example
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+*.ipynb_checkpoints/
+
+# VS Code and IDE settings
+.vscode/
+.idea/
+
+# Operating system files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Log files
+*.log
+logs/
+
+# Temporary files
+*.tmp
+*.bak
+*.swp
+*.swo
+
+# Testing and coverage
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+
+# Build and distribution
+build/
+dist/
+*.egg-info/
+
+# Local ChromaDB vector database
+vectorstore/
+
+# Machine learning model caches
+.cache/
+huggingface_cache/
+sentence_transformers_cache/
+
+# Generated evaluation outputs
+evaluation/*.csv
+
+# Generated application outputs
+outputs/
+
+# Database temporary files
+*.sqlite
+*.sqlite3
+*.db-wal
+*.db-shm
+
+# ==================================================
+# KEEP IMPORTANT PROJECT FILES IN GITHUB
+# ==================================================
+# app.py
+# requirements.txt
+# Procfile
+# data/
+# templates/
+# static/
+# evaluation/ (excluding generated CSV files)

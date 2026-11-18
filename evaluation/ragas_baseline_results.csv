@@ -1,0 +1,12 @@
+question,expected_source,faithfulness,answer_relevancy,context_precision,context_recall
+What is the return policy?,02_Return_Policy.pdf,,0.5408711761845995,0.999999999975,
+How can I get a refund?,03_Refund_Policy.pdf,,0.5775379441340048,0.999999999975,
+How long does shipping take?,04_Shipping_Policy.pdf,1.0,0.6065968422271728,0.9999999999666667,
+What payment methods are accepted?,05_Payment_Policy.pdf,1.0,0.6741854006397947,0.7499999999625,
+How does the warranty work?,06_Warranty_Guidance.pdf,,0.601323608751108,0.99999999995,
+How can I check my order?,07_Order_Management_Guide.pdf,1.0,0.689494209071804,0.8055555555287036,
+Can I cancel my order?,08_Cancellation_Policy.pdf,0.8,0.6595614250816592,0.99999999995,
+How can I exchange a product?,09_Exchange_Policy.pdf,,0.5939565416098702,0.8874999999778125,1.0
+How is customer information protected?,10_Privacy_Policy.pdf,1.0,0.6923896811403174,0.8874999999778125,
+How can I escalate a complaint?,11_Customer_Support_Escalation_Guide.pdf,,0.518485004936773,0.5333333333155555,
+Show me available products and their prices.,12_Product_Catalogue.csv,0.8333333333333334,0.5496562792543722,0.0,
