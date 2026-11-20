@@ -1,0 +1,12 @@
+sample_number,question,faithfulness,answer_relevancy,context_precision,context_recall,status,errors
+1,What is the return policy?,1.0,0.46438242381013173,0.999999999975,1.0,SUCCESS,
+2,How can I get a refund?,0.875,0.453490116095751,0.9999999999666667,1.0,SUCCESS,
+3,How long does shipping take?,0.8,0.5743310563900298,0.9166666666361111,1.0,SUCCESS,
+4,What payment methods are accepted?,1.0,0.6178893338877657,0.999999999975,1.0,SUCCESS,
+5,How does the warranty work?,1.0,0.5682994842667397,0.99999999995,1.0,SUCCESS,
+6,How can I check my order?,0.7142857142857143,0.6499482732256476,0.999999999975,1.0,SUCCESS,
+7,Can I cancel my order?,0.8181818181818182,0.6524972231811846,0.99999999995,1.0,SUCCESS,
+8,How can I exchange a product?,1.0,0.5910009518057995,0.999999999975,1.0,SUCCESS,
+9,How is customer information protected?,1.0,0.682224073409873,0.999999999975,1.0,SUCCESS,
+10,How can I escalate a complaint?,0.7777777777777778,0.4714813632670373,0.999999999975,1.0,SUCCESS,
+11,Show me available products and their prices.,0.7142857142857143,0.6192522412454561,0.0,0.0,SUCCESS,
