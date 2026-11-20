@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ShopAssistAI | Smart Customer Support</title>
+
+    <meta name="description"
+          content="ShopAssistAI is an AI-powered e-commerce customer support chatbot.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+          rel="stylesheet">
+
+    <!-- Main CSS -->
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <div class="app-container">
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar" id="sidebar">
+
+            <div class="sidebar-header">
+
+                <a href="/" class="brand">
+                    <div class="brand-icon">
+                        <svg viewBox="0 0 24 24" fill="none"
+                             stroke="currentColor" stroke-width="2">
+                            <path d="M3 9h18l-2 12H5L3 9Z"/>
+                            <path d="M8 9a4 4 0 0 1 8 0"/>
+                        </svg>
+                    </div>
+
+                    <div class="brand-text">
+                        <span class="brand-name">ShopAssist<span>AI</span></span>
+                        <span class="brand-version">RAG 2.0</span>
+                    </div>
+                </a>
+
+                <button class="icon-button mobile-close"
+                        id="menuBtn"
+                        type="button"
+                        aria-label="Toggle sidebar">
+                    <svg viewBox="0 0 24 24" fill="none"
+                         stroke="currentColor" stroke-width="2">
+                        <path d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
+
+            </div>
+
+            <!-- NEW CHAT -->
+            <button class="new-chat-btn" id="newChatBtn" type="button">
+                <span class="plus-icon">+</span>
+                <span>New Conversation</span>
+            </button>
+
+            <!-- SIDEBAR CONTENT -->
+            <div class="sidebar-content">
+
+                <div class="sidebar-section">
+                    <p class="sidebar-label">YOUR ASSISTANT</p>
+
+                    <div class="sidebar-info">
+                        <div class="assistant-avatar">
+                            <svg viewBox="0 0 24 24" fill="none"
+                                 stroke="currentColor" stroke-width="2">
+                                <path d="M12 3v3M5.6 5.6l2.1 2.1M3 12h3M5.6 18.4l2.1-2.1M12 18v3M16.3 16.3l2.1 2.1M18 12h3M16.3 7.7l2.1-2.1"/>
+                                <circle cx="12" cy="12" r="4"/>
+                            </svg>
+                        </div>
+
+                        <div class="sidebar-info-text">
+                            <strong>ShopAssistAI</strong>
+                            <span>AI Support Assistant</span>
+                        </div>
+
+                        <span class="online-indicator"></span>
+                    </div>
+                </div>
+
+                <div class="sidebar-section">
+                    <p class="sidebar-label">CAPABILITIES</p>
+
+                    <div class="capability-item">
+                        <span class="capability-icon">✦</span>
+                        <span>Product Information</span>
+                    </div>
+
+                    <div class="capability-item">
+                        <span class="capability-icon">↩</span>
+                        <span>Returns & Refunds</span>
+                    </div>
+
+                    <div class="capability-item">
+                        <span class="capability-icon">◇</span>
+                        <span>Shipping & Delivery</span>
+                    </div>
+
+                    <div class="capability-item">
+                        <span class="capability-icon">⌘</span>
+                        <span>Order Guidance</span>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- SIDEBAR FOOTER -->
+            <div class="sidebar-footer">
+
+                <div class="sidebar-footer-card">
+                    <div class="footer-icon">✦</div>
+
+                    <div>
+                        <strong>Powered by AI</strong>
+                        <p>Retrieval-Augmented Generation</p>
+                    </div>
+                </div>
+
+                <div class="sidebar-footer-bottom">
+                    <span>ShopAssistAI RAG 2.0</span>
+                    <span>v2.0</span>
+                </div>
+
+            </div>
+
+        </aside>
+
+
+        <!-- MAIN CONTENT -->
+        <main class="main-content">
+
+            <!-- TOP NAVIGATION -->
+            <header class="topbar">
+
+                <div class="topbar-left">
+
+                    <button class="icon-button"
+                            id="menuToggle"
+                            type="button"
+                            aria-label="Open menu">
+                        <svg viewBox="0 0 24 24" fill="none"
+                             stroke="currentColor" stroke-width="2">
+                            <path d="M4 6h16M4 12h16M4 18h16"/>
+                        </svg>
+                    </button>
+
+                    <div class="breadcrumb">
+                        <span>Workspace</span>
+                        <span class="breadcrumb-separator">/</span>
+                        <strong>AI Assistant</strong>
+                    </div>
+
+                </div>
+
+                <div class="topbar-right">
+
+                    <div class="status-badge">
+                        <span class="status-dot"></span>
+                        AI Assistant Online
+                    </div>
+
+                    <button class="clear-chat-btn"
+                            id="clearChatBtn"
+                            type="button">
+                        <svg viewBox="0 0 24 24" fill="none"
+                             stroke="currentColor" stroke-width="1.8">
+                            <path d="M3 6h18M8 6V4h8v2m3 0-1 14H6L5 6"/>
+                        </svg>
+                        <span>Clear Chat</span>
+                    </button>
+
+                </div>
+
+            </header>
+
+
+            <!-- CHAT AREA -->
+            <section class="chat-section">
+
+                <div class="chat-wrapper">
+
+                    <!-- WELCOME SCREEN -->
+                    <div class="welcome-area" id="welcomeArea">
+
+                        <div class="welcome-icon">
+                            <div class="welcome-icon-inner">
+                                <svg viewBox="0 0 24 24" fill="none"
+                                     stroke="currentColor" stroke-width="1.7">
+                                    <path d="M12 3v3M5.6 5.6l2.1 2.1M3 12h3M5.6 18.4l2.1-2.1M12 18v3M16.3 16.3l2.1 2.1M18 12h3M16.3 7.7l2.1-2.1"/>
+                                    <circle cx="12" cy="12" r="4"/>
+                                </svg>
+                            </div>
+                        </div>
+
+                        <div class="welcome-label">
+                            YOUR AI SHOPPING ASSISTANT
+                        </div>
+
+                        <h1>
+                            Hello! How can I
+                            <span>help you today?</span>
+                        </h1>
+
+                        <p class="welcome-description">
+                            I'm ShopAssistAI, your intelligent e-commerce
+                            support assistant. Ask me about products,
+                            orders, returns, refunds, shipping, and more.
+                        </p>
+
+
+                        <!-- SUGGESTED QUESTIONS -->
+                        <div class="suggestions-container">
+
+                            <p class="suggestions-heading">
+                                TRY ASKING ME
+                            </p>
+
+                            <div class="suggestion-grid">
+
+                                <button class="suggestion-card"
+                                        type="button"
+                                        data-prompt="What products are available in the catalogue?">
+
+                                    <span class="suggestion-icon product-icon">
+                                        <svg viewBox="0 0 24 24" fill="none"
+                                             stroke="currentColor" stroke-width="1.8">
+                                            <path d="m12 3 9 5-9 5-9-5 9-5Z"/>
+                                            <path d="m3 8 9 5 9-5M3 8v9l9 5 9-5V8"/>
+                                            <path d="M12 13v9"/>
+                                        </svg>
+                                    </span>
+
+                                    <span class="suggestion-content">
+                                        <strong>Explore Products</strong>
+                                        <small>Discover available products and prices.</small>
+                                    </span>
+
+                                    <span class="suggestion-arrow">↗</span>
+
+                                </button>
+
+
+                                <button class="suggestion-card"
+                                        type="button"
+                                        data-prompt="What is your return policy?">
+
+                                    <span class="suggestion-icon return-icon">
+                                        <svg viewBox="0 0 24 24" fill="none"
+                                             stroke="currentColor" stroke-width="1.8">
+                                            <path d="M9 14 4 9l5-5"/>
+                                            <path d="M4 9h10a6 6 0 0 1 0 12h-2"/>
+                                        </svg>
+                                    </span>
+
+                                    <span class="suggestion-content">
+                                        <strong>Return Policy</strong>
+                                        <small>Understand return and exchange rules.</small>
+                                    </span>
+
+                                    <span class="suggestion-arrow">↗</span>
+
+                                </button>
+
+
+                                <button class="suggestion-card"
+                                        type="button"
+                                        data-prompt="How long does shipping and delivery take?">
+
+                                    <span class="suggestion-icon shipping-icon">
+                                        <svg viewBox="0 0 24 24" fill="none"
+                                             stroke="currentColor" stroke-width="1.8">
+                                            <path d="M3 6h12v12H3z"/>
+                                            <path d="M15 10h4l3 4v4h-7z"/>
+                                            <circle cx="7.5" cy="18" r="2"/>
+                                            <circle cx="18.5" cy="18" r="2"/>
+                                        </svg>
+                                    </span>
+
+                                    <span class="suggestion-content">
+                                        <strong>Shipping & Delivery</strong>
+                                        <small>Get information about delivery timelines.</small>
+                                    </span>
+
+                                    <span class="suggestion-arrow">↗</span>
+
+                                </button>
+
+
+                                <button class="suggestion-card"
+                                        type="button"
+                                        data-prompt="What payment methods are accepted?">
+
+                                    <span class="suggestion-icon payment-icon">
+                                        <svg viewBox="0 0 24 24" fill="none"
+                                             stroke="currentColor" stroke-width="1.8">
+                                            <rect x="2" y="5" width="20"
+                                                  height="14" rx="2"/>
+                                            <path d="M2 10h20M6 15h4"/>
+                                        </svg>
+                                    </span>
+
+                                    <span class="suggestion-content">
+                                        <strong>Payment Methods</strong>
+                                        <small>Learn about accepted payment options.</small>
+                                    </span>
+
+                                    <span class="suggestion-arrow">↗</span>
+
+                                </button>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                    <!-- CHAT MESSAGES -->
+                    <div class="messages-area" id="messagesArea"
+                         aria-live="polite">
+                    </div>
+
+
+                    <!-- TYPING INDICATOR -->
+                    <div class="typing-indicator"
+                         id="typingIndicator"
+                         aria-live="polite">
+
+                        <div class="typing-avatar">✦</div>
+
+                        <div class="typing-content">
+                            <span>ShopAssistAI is thinking</span>
+
+                            <div class="typing-dots">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- CHAT INPUT AREA -->
+            <footer class="chat-footer">
+
+                <div class="input-container">
+
+                    <form id="chatForm" class="chat-form">
+
+                        <textarea
+                            id="messageInput"
+                            name="message"
+                            rows="1"
+                            maxlength="2000"
+                            placeholder="Ask me anything about your shopping..."
+                            aria-label="Enter your message"
+                            required
+                        ></textarea>
+
+                        <div class="input-bottom">
+
+                            <div class="input-hint">
+                                <span class="hint-icon">✦</span>
+                                <span>Powered by Retrieval-Augmented Generation</span>
+                            </div>
+
+                            <div class="input-actions">
+
+                                <span class="character-count"
+                                      id="characterCount">
+                                    0 / 2000
+                                </span>
+
+                                <button class="send-button"
+                                        id="sendButton"
+                                        type="submit"
+                                        aria-label="Send message">
+
+                                    <span>Send</span>
+
+                                    <svg viewBox="0 0 24 24" fill="none"
+                                         stroke="currentColor"
+                                         stroke-width="2">
+                                        <path d="m22 2-7 20-4-9-9-4Z"/>
+                                        <path d="M22 2 11 13"/>
+                                    </svg>
+
+                                </button>
+
+                            </div>
+
+                        </div>
+
+                    </form>
+
+                </div>
+
+
+                <!-- DISCLAIMER -->
+                <p class="footer-disclaimer">
+                    ShopAssistAI provides answers based on its available
+                    knowledge base. Please verify important information
+                    with customer support.
+                </p>
+
+            </footer>
+
+        </main>
+
+    </div>
+
+
+    <!-- TOAST NOTIFICATION -->
+    <div class="toast" id="toast" role="status" aria-live="polite">
+        <span class="toast-icon">✓</span>
+        <span class="toast-message">Notification</span>
+    </div>
+
+
+    <!-- MAIN JAVASCRIPT -->
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+</html>
